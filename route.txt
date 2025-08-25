@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mi-app
+  labels:
+    app: mi-app
+spec:
+  to:
+    kind: Service
+    name: mi-app
+  port:
+    targetPort: http
+  tls:
+    termination: edge

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-app
+  namespace: intro-navigate
+  labels:
+    app: mi-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+    spec:
+      containers:
+      - name: hello-world
+        image: quay.io/redhattraining/hello-world-nginx:v1.0
+        ports:
+        - containerPort: 8080
